@@ -1,12 +1,14 @@
 * {
+  padding: 0;
   margin: 0;
   box-sizing: border-box;
+
+  font-family: "Open Sans";
 }
 
-*:not(ul):not(ol) {
-  padding: 0;
-}
+/* general */
 
-html {
-  font-family: Arial, Helvetica, sans-serif;
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
 }
