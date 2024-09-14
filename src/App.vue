@@ -4,64 +4,89 @@ export default {
 
   data() {
     return {
-      message: 'Hello world',
-
       links:[
         {
           text : 'CHARACTERS',
-          url : "href='#'",
+          url : '#',
           active: false, 
         },
         {
           text : 'COMICS',
-          url : "href='#'",
+          url : '#',
           active: true,
         },
         {
           text : 'MOVIES',
-          url : "href='#'",
+          url : '#',
           active: false,
         },
         {
           text : 'TV',
-          url : "href='#'",
+          url : '#',
           active: false,
         },
         {
           text : 'GAMES',
-          url : "href='#'",
+          url : '#',
           active: false,
         },
         {
           text : 'COLLECTIBLES',
-          url : "href='#'",
+          url : '#',
           active: false,
         },
         {
           text : 'CHARACTERS',
-          url : "href='#'",
+          url : '#',
           active: false,
         },
         {
           text : 'VIDEOS',
-          url : "href='#'",
+          url : '#',
           active: false,
         },
         {
           text : 'FANS',
-          url : "href='#'",
+          url : '#',
           active: false,
         },
         {
           text : 'NEWS',
-          url : "href='#'",
+          url : '#',
           active: false,
         },
         {
           text : 'SHOP',
-          url : "href='#'",
+          url : '#',
           active: false,
         }
+      ],
+      products:[
+        {
+          text : 'DIGITAL COMICS',
+          url : '#',
+          image: '/public/img/buy-comics-digital-comics.png',
+        },
+        {
+          text : 'DC MERCHANDISE',
+          url : '#',
+          image: '/public/img/buy-comics-merchandise.png',
+        },
+        {
+          text : 'SUBSCRIPTION',
+          url : '#',
+          image: '/public/img/buy-comics-subscriptions.png',
+        },
+        {
+          text : 'COMIC SHOP LOCATOR',
+          url : '#',
+          image: '/public/img/buy-comics-shop-locator.png',
+        },
+        {
+          text : 'DC POWER VISA',
+          url : '#',
+          image: '/public/img/buy-dc-power-visa.svg',
+        },
       ]
     }
   },
@@ -76,19 +101,23 @@ export default {
 <template>
 
   <header>
-    <!-- sezione nera -->
-    <div class="black-section"></div>
 
-    <div class="container flex">
-      <!-- logo -->
-      <img class="logo" src=" " alt="DC">
+    <div class="myContainer">
 
-      <div class="col-60">
-        <ul>
-          <li v-for="(link, index) in links">
-            <a :href="link.url"> {{ link.text }} </a>  
-          </li>
-        </ul>
+      <div class="d-flex justify-content-between align-items-center">
+
+            <!-- logo -->
+            <img class="logo" src="/img/dc-logo.png" alt="DC">
+
+            <!-- lista link -->
+            <div>
+                <ul>
+                  <li v-for="(link, index) in links" :key="index">
+                    <a :href="link.url" :class="link.active ? 'active' : '' " class="header-link"> {{ link.text }}</a>  
+                  </li>
+                </ul>
+            </div>
+            
       </div>
 
     </div>
@@ -97,53 +126,203 @@ export default {
 
   <main>
 
-<!-- content -->
-<section class="bg-black">
+    <!-- content -->
+    <section class="bg-black">
 
-  <div class="container">
+      <div class="myContainer">
 
-    <section class="content flex">
-        <div>
-            --&gt Content goes here &lt--
-        </div>
+        <section class="content">
+
+        </section>
+        
+      </div>
+
     </section>
-    
-  </div>
 
-</section>
+    <!-- prodotti -->
+    <section class="bg-blue">
 
-<!-- prodotti -->
-<section class="bg-blue">
+      <div class="myContainer">
 
-  <div class="content">
-      <section>
-        hello
-      </section>
-  </div>
+            <ul class="mb-0 py-4">
+              <li v-for="(product, index) in products" :key="index">
 
-</section>
+                <a :href="product.url" class="d-flex align-items-center">
 
-</main>
+                  <img class="product-img m-2" :src="product.image" :alt="product.text">
+                  <span class="text-white product-text">
+                    {{product.text}}
+                  </span>
 
+                </a>
+
+              </li>
+            </ul>
+
+      </div>
+
+    </section>
+
+  </main>
 
   <footer>
 
-    <div class="container">
-
       <!-- footer top -->
-      <section>
+      <section class="footer-top">
+
+        <div class="myContainer d-flex justify-content-between align-items-center pt-4">
+
+          <!-- links -->
+          <div class="d-flex">
+              <!-- DC COMICS & SHOP -->
+              <section class="me-4">
+                  
+                  <div>
+                        <p class="list-title mb-2">DC COMICS</p>
+
+                        <ul>
+                          <li>
+                            <a href=""> Characters</a>
+                          </li>
+                          <li>
+                            <a href=""> Comics</a>
+                          </li>
+                          <li>
+                            <a href=""> Movies</a>
+                          </li>
+                          <li>
+                            <a href=""> TV</a>
+                          </li>
+                          <li>
+                            <a href=""> Games</a>
+                          </li>
+                          <li>
+                            <a href=""> Videos</a>
+                          </li>
+                          <li>
+                            <a href=""> News</a>
+                          </li>
+                        </ul>
+                  </div>
+    
+                  <div>
+                        <p class="list-title mb-2">SHOP</p>
+                        <ul>
+                          <li>
+                            <a href=""> Shop DC</a>
+                          </li>
+                          <li>
+                            <a href=""> Shop DC Collectibles</a>
+                          </li>
+                        </ul>
+                  </div>
+
+              </section>
+
+              <!-- DC -->
+              <section class="me-4">
+                  
+                  <div>
+                        <p class="list-title mb-2">DC</p>
+
+                        <ul>
+                          <li>
+                            <a href=""> Term of Use</a>
+                          </li>
+                          <li>
+                            <a href=""> Privacy Policy</a>
+                          </li>
+                          <li>
+                            <a href=""> Ad choices</a>
+                          </li>
+                          <li>
+                            <a href=""> Advertising</a>
+                          </li>
+                          <li>
+                            <a href=""> Jobs</a>
+                          </li>
+                          <li>
+                            <a href=""> Subscriptions</a>
+                          </li>
+                          <li>
+                            <a href=""> Talent Workshops</a>
+                          </li>
+                          <li>
+                            <a href=""> CPSC Certificates</a>
+                          </li>
+                          <li>
+                            <a href=""> Ratings</a>
+                          </li>
+                          <li>
+                            <a href=""> Shop Help</a>
+                          </li>
+                          <li>
+                            <a href=""> Contact Us</a>
+                          </li>
+                        </ul>
+                  </div>
+
+              </section>
+
+              <!-- SITES -->
+              <section>
+                  
+                  <div>
+                        <p class="list-title mb-2">SITES</p>
+
+                        <ul>
+                          <li>
+                            <a href=""> DC</a>
+                          </li>
+                          <li>
+                            <a href=""> MAD Magazine</a>
+                          </li>
+                          <li>
+                            <a href=""> DC Kids</a>
+                          </li>
+                          <li>
+                            <a href=""> DC Universe</a>
+                          </li>
+                          <li>
+                            <a href=""> DC Power Visa</a>
+                          </li>
+                        </ul>
+                  </div>
+
+              </section>
+          </div>
+ 
+          <!-- immagine sfondo -->
+          <img class="dc-sfondo" src="/public/img/dc-logo-bg.png" alt="DC">
+          
+        </div>
 
       </section>
 
       <!-- footer bottom -->
-      <section>
+      <section class="footer-bottom">
+
+        <div class="myContainer d-flex justify-content-between align-items-center">
+          <button class="sign-up-button">
+            SIGN-UP NOW!
+          </button>
+
+          <div class="d-flex align-items-center">
+
+              <div class="text-primary fw-bold me-3">
+              FOLLOW US
+              </div>
+
+              <img class="me-3" src="/public/img/footer-facebook.png" alt="facebook">
+              <img class="me-3" src="/public/img/footer-twitter.png" alt="facebook">
+              <img class="me-3" src="/public/img/footer-youtube.png" alt="facebook">
+              <img class="me-3" src="/public/img/footer-pinterest.png" alt="facebook">
+              <img src="/public/img/footer-periscope.png" alt="facebook">
+
+          </div>
+        </div>
         
       </section>
-
-    </div>
-
-    <!-- sezione nera -->
-    <div class="black-section"></div>
 
   </footer>
 
@@ -152,33 +331,21 @@ export default {
 <style scoped>
 
 /* general */
-.flex{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-img{
-  max-width: 100%;
-}
 
 .bg-blue{
   background-color: #0082F9;
 }
 
-.bg-black{
-  background-color: #0E0E0E;
+a{
+  text-decoration: none;
+  padding: 10px;
 }
 
 /* header */
 
 .logo{
   width: 60px;
-}
-
-.black-section{
-height: 50px;
-width: 100%;
+  padding: 20px 0;
 }
 
 ul{
@@ -191,22 +358,17 @@ ul{
   align-items: center;
 }
 
-li a{
+li .header-link{
   font-family: "Roboto Condensed";
   font-weight: bold;
   font-size: 0.9rem;
-  text-decoration: none;
-
   color: rgb(67, 67, 67);
-
-  display: inline-block;
-
-  padding: 10px;
-  padding-bottom: 30px;
-  margin-top: 30px;
+  padding-bottom: 45px;
+  transition: color 0.3s ease-in-out
 }
 
-.active{
+.header-link.active,
+.header-link:hover{
   color: #0082F9;
   border-bottom: 4px solid #0082F9;
 }
@@ -214,13 +376,69 @@ li a{
 /* content */
 
 .content{
-  font-family: "Roboto Condensed";
-  font-size: 1.2rem;
-
-  color: white;
-
   height: 100px;
 }
 
+/* prodotti */
+
+.product-text{
+  font-size: 0.8rem;
+}
+
+.product-img{
+  height: 35px;
+}
+
+/* footer */
+
+.footer-top{
+  background-image: url('/public/img/footer-bg.jpg');
+  overflow: hidden;
+  position: relative;
+}
+
+.dc-sfondo{
+  width: 480px;
+  position: absolute;
+  right: 15%
+}
+
+.list-title{
+  color: white;
+  font-family: "Roboto Condensed";
+  font-weight: bold;
+}
+
+.footer-top ul{
+  display: inline-block;
+}
+
+.footer-top li a{
+  padding: 0;
+  font-size: 0.7rem;
+  color: grey;
+}
+
+/* footer bottom */
+
+.footer-bottom{
+  background-color: #303030;
+  padding: 20px 0;
+}
+
+.sign-up-button{
+  background-color:#303030;
+  color: white;
+  border: 1px solid #0082F9;
+  padding: 10px 15px;
+}
+
+.sign-up-button:hover{
+  background-color:#0082F9;
+}
+
+.footer-bottom img{
+width: 25px;  
+}
 
 </style>
