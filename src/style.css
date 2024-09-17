@@ -12,3 +12,15 @@
   max-width: 1000px;
   margin: 0 auto;
 }
+
+
+* {
+  font-family: "Open Sans";
+}
+
+/* general */
+
+.myContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+}
